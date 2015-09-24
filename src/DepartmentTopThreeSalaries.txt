@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+select d.Name, e.Name, e.Salary
+from Department d, Employee e
+where d.Id = e.DepartmentId and
+(select count(distinct(Salary)) from Employee where Employee.DepartmentId = e.DepartmentId and Salary > e.Salary) < 3
