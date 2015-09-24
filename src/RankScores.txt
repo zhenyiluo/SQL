@@ -1,0 +1,13 @@
+# Write your MySQL query statement below
+
+select s2.Score, s1.Rank
+from (
+    select S1.Score, count(*) as Rank from
+    (select distinct Score from Scores) S1, 
+    (select distinct Score from Scores) S2
+    where S1.Score <= S2.Score
+    group by S1.Score
+
+) s1, Scores as s2
+where s1.Score = s2.Score
+order by s2.Score desc
