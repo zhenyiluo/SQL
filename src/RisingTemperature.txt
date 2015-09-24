@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+select w1.Id from
+Weather w1 inner join Weather w2 
+on to_days(w1.Date) = to_days(w2.Date) + 1 and w1.Temperature > w2.Temperature
